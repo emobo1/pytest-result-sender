@@ -5,7 +5,9 @@ description = "Default template for PDM package"
 authors = [
     {name = "", email = ""},
 ]
-dependencies = []
+dependencies = [
+    "requests>=2.32.3",
+]
 requires-python = ">=3.12"
 readme = "README.md"
 license = {text = "MIT"}
@@ -15,10 +17,16 @@ requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 [project.entry-points.pytest11]
-result_log = "pytest_result_sender.plugin"
+result_log = "pythonproject1.plugin"
 
 [tool.pdm.build]
 package-dir = "src"
 
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=24.4.2",
+    "isort>=5.13.2",
+    "flake8>=7.1.0",
+]
 [tool.pdm]
 distribution = true
